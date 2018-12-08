@@ -2,8 +2,10 @@
  * ScreenTab1/index.js
  */
 import React, {Component} from 'react';
-import {Image,Dimensions} from 'react-native'
+import {Text, View,Image,Dimensions} from 'react-native'
+
 var {height,width} =  Dimensions.get('window');
+
 
 
 export default class ScreenSome1 extends Component {
