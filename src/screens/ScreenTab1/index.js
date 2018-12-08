@@ -3,9 +3,11 @@ import { Image } from 'react-native';
 import view from './view';
 
 export default class ScreenTab1 extends Component {
-
+   static headersFind={
+     title: '常用设备'
+  };
   static navigationOptions = {
-    title: '网络请求(TAB1)',
+    title: '设备',
     tabBarIcon: ({ focused }) => {
       const icon = focused
           ? require('../../images/shebei.png')

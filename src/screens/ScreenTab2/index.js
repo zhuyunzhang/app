@@ -11,8 +11,11 @@ import { Image } from 'react-native';
 import view from './view';
 
 class ScreenTab2 extends Component {
+   static headersFind={
+     title: '在线充值'
+  };
   static navigationOptions = {
-    title: 'Redux(TAB2)',
+    title: '充值',
     tabBarIcon: ({ focused }) => {
       const icon = focused
          ? require('../../images/pay.png')

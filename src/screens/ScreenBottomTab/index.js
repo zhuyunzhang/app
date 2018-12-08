@@ -25,7 +25,16 @@ ScreenTab.navigationOptions = ({ navigation }) => {
   const { routeName } = navigation.state.routes[navigation.state.index];
 
   const headerTitle = routeName;
-
+    switch(headerTitle){
+    case "ScreenHome":
+      return ScreenHome.headersFind;
+    case "ScreenTab1":
+      return ScreenTab1.headersFind;
+    case "ScreenTab2":
+      return ScreenTab2.headersFind;
+    case "ScreenTab3":
+      return ScreenTab3.headersFind;
+  }
   return {
     headerTitle,
   };

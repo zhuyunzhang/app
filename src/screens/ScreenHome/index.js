@@ -13,6 +13,9 @@ export default class ScreenHome extends Component {
       SplashScreen.hide();
     }, 3000);
   }
+  static headersFind={
+     title: '首页'
+  };
   static navigationOptions = {
     title: '首页',
     tabBarIcon: ({ focused }) => {
