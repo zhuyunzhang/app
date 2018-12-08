@@ -15,7 +15,7 @@ class ScreenTab2 extends Component {
     title: 'Redux(TAB2)',
     tabBarIcon: ({ focused }) => {
       const icon = focused
-         ? require('../../images/pay1.jpg')
+         ? require('../../images/pay.png')
         : require('../../images/pay1.png');
       return <Image source={icon} style={{ height: 22, width: 22 }} />;
     },

@@ -8,7 +8,7 @@ export default class ScreenTab1 extends Component {
     title: '网络请求(TAB1)',
     tabBarIcon: ({ focused }) => {
       const icon = focused
-          ? require('../../images/shebei1.jpg')
+          ? require('../../images/shebei.png')
         : require('../../images/shebei1.png');
       return <Image source={icon} style={{ height: 22, width: 22 }} />;
     },

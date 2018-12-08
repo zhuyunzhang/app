@@ -10,7 +10,7 @@ export default class ScreenSome1 extends Component {
     title: '个人',
      tabBarIcon: ({ focused }) => {
       const icon = focused
-        ? require('../../images/geren1.jpg')
+        ? require('../../images/geren.png')
         : require('../../images/geren1.png');
       return <Image source={icon} style={{ height: 22, width: 22 }} />;
     },

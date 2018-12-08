@@ -17,7 +17,7 @@ export default class ScreenHome extends Component {
     title: '首页',
     tabBarIcon: ({ focused }) => {
       const icon = focused
-        ? require('../../images/home1.jpg')
+        ? require('../../images/home.png')
         : require('../../images/home1.png');
       return <Image source={icon} style={{ height: 22, width: 22 }} />;
     },
