@@ -2,11 +2,23 @@
  * ScreenTab1/index.js
  */
 import React, {Component} from 'react';
-import {Text, View, Button,Image} from 'react-native'
+import {Image,Dimensions} from 'react-native'
+var {height,width} =  Dimensions.get('window');
+
 
 export default class ScreenSome1 extends Component {
   static headersFind={
-     title: '个人'
+    headerTitle: '个人',
+    headerStyle: {
+      backgroundColor: '#66CDAA',
+      height :height/15
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      flex:1,
+      textAlign: 'center'
+    }
   };
   static navigationOptions = {
     title: '我的',

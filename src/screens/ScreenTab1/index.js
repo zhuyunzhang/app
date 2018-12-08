@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image,Dimensions } from 'react-native';
 import view from './view';
+
+var {height,width} =  Dimensions.get('window');
 
 export default class ScreenTab1 extends Component {
    static headersFind={
-     title: '常用设备'
+    headerTitle: '常用设备',
+    headerStyle: {
+      backgroundColor: '#66CDAA',
+      height :height/15
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      flex:1,
+      textAlign: 'center'
+    }
   };
   static navigationOptions = {
     title: '设备',

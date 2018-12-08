@@ -6,13 +6,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../redux/actions';
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-
+import { Image,Dimensions } from 'react-native';
 import view from './view';
+var {height,width} =  Dimensions.get('window');
 
 class ScreenTab2 extends Component {
    static headersFind={
-     title: '在线充值'
+    headerTitle: '在线充值',
+    headerStyle: {
+      backgroundColor: '#66CDAA',
+      height :height/15
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      flex:1,
+      textAlign: 'center'
+    }
   };
   static navigationOptions = {
     title: '充值',
