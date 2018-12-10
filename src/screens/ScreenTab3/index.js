@@ -12,7 +12,7 @@ export default class ScreenSome1 extends Component {
   static headersFind={
     headerTitle: '个人',
     headerStyle: {
-      backgroundColor: '#66CDAA',
+      backgroundColor: '#48D1CC',
       height :height/15
     },
     headerTintColor: '#fff',

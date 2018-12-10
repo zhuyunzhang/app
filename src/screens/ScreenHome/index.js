@@ -2,10 +2,14 @@
  * ScreenTab1/index.js
  */
 import React, {Component} from 'react';
-import {Image,Dimensions} from 'react-native'
+import {
+  Image,
+  Dimensions
+} from 'react-native'
 
 import SplashScreen from "react-native-splash-screen"; 
 import view from './view';
+
 var {height,width} =  Dimensions.get('window');
 
 export default class ScreenHome extends Component {
@@ -18,7 +22,7 @@ export default class ScreenHome extends Component {
   static headersFind={
     headerTitle: '首页',
     headerStyle: {
-      backgroundColor: '#66CDAA',
+      backgroundColor: '#48D1CC',
       height :height/15
     },
     headerTintColor: '#fff',
@@ -37,12 +41,6 @@ export default class ScreenHome extends Component {
       return <Image source={icon} style={{ height: 22, width: 22 }} />;
     },
   };
-
-  constructor(props) {
-    super(props);
-    this.navigation = props.navigation;
-  }
-
   render() {
     return view(this);
   }

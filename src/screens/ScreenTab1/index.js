@@ -8,7 +8,7 @@ export default class ScreenTab1 extends Component {
    static headersFind={
     headerTitle: '常用设备',
     headerStyle: {
-      backgroundColor: '#66CDAA',
+      backgroundColor: '#48D1CC',
       height :height/15
     },
     headerTintColor: '#fff',
