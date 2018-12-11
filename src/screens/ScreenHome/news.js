@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { Image,Dimensions,TouchableOpacity ,Alert} from 'react-native';
+import { Image,Dimensions,TouchableOpacity ,Alert,View} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 const { width,height} = Dimensions.get('window')
 export default class news extends Component {
@@ -9,18 +9,20 @@ export default class news extends Component {
     return (
           <Card>
           	<TouchableOpacity  onPress={()=>{Alert.alert("安徽兴日智能科技有限公司!")}} >
-            <CardItem style={{height: 50}}>
-                <Left>
-                 	<Thumbnail source={require('../../images/padder.png')} style={{height: 40}}/>
-                	<Body>
-	                  	<Text>兴日智能科技</Text>
-	                   	<Text note>www.xrzn.cn</Text>
-                	</Body>
-              	</Left>
-              	<Right>
-              			<Image source={require('../../images/right.png')}  style={{height: 20, width:20, flex: 1}}/>
-              	</Right>
-            </CardItem>
+	            <CardItem style={{height: 50}}>
+	                <Left>
+	                 	<Thumbnail source={require('../../images/padder.png')} style={{height: 40}}/>
+	                	<Body>
+		                  	<Text>兴日智能科技</Text>
+		                   	<Text note>www.xrzn.cn</Text>
+	                	</Body>
+	              	</Left>
+	              	<Right >
+	              		<View>
+		                  <Text>详情</Text>
+		                </View>
+	              	</Right>
+	            </CardItem>
             </TouchableOpacity>
             <CardItem>
               	<Body>

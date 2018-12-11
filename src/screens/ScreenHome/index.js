@@ -4,7 +4,10 @@
 import React, {Component} from 'react';
 import {
   Image,
-  Dimensions
+  Dimensions,
+  TouchableOpacity,
+  Alert,
+  View
 } from 'react-native'
 
 import SplashScreen from "react-native-splash-screen"; 
