@@ -1,3 +1,4 @@
+//XINGRI-0Q5OGRE2\Administrator
 import React, { Component } from 'react';
 import { 
     Dimensions, 
