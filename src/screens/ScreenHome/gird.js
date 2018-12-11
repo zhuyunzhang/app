@@ -10,7 +10,8 @@ import {
     Text, 
     TouchableOpacity, 
     StyleSheet,
-    Image
+    Image,
+    Navigator
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
@@ -24,15 +25,15 @@ export default class gird extends Component {
     render() {
         const data = [{
             content: [
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '扫一扫'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '审帖'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '漫画'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的收藏'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '附近'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '意见反馈'},
-                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '更多'},
+                { key:1,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '扫一扫'},
+                { key:2,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '审帖'},
+                { key:3,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '漫画'},
+                { key:4,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的收藏'},
+                { key:5,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '附近'},
+                { key:6,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '意见反馈'},
+                { key:7,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '更多'},
             ],
-            key: 'content',
+            img: 'content',
         }];
         return (
             <SafeAreaView style={styles.container}>
@@ -46,7 +47,7 @@ export default class gird extends Component {
     }
 
     _keyExtractor = (item, index) => {
-        return item.key;
+        return item.img;
     }
 
 
@@ -55,25 +56,27 @@ export default class gird extends Component {
             <TouchableOpacity 
                 activeOpacity={0.7}
                 style={styles.item}
-                onPress={this.onPressImage.bind(this)} 
+                 onPress={() => this.onPressImage(item.key,item.title)}
             >
                 <Image 
-                    source={{uri: item.key}}  
+                    source={{uri: item.img}}  
                     style={styles.itemImage}
                 />
                 <Text style={styles.itemText}>{item.title}</Text>
             </TouchableOpacity>
         )
     }
-    onPressImage() {
-      alert(JSON.stringify(this.props));
-      
+    onPressImage(keys,title) {
+        if(keys===1){
+            const{navigation}=this.props.props
+            if(navigation){
+                navigation.navigate('Scanning') 
+            }
+        }else{
+            alert("==>"+title)
+        }
+        
     }
-
-    // onPressImage() {
-    //      alert(this.props.navigation.navigate('ScreenSome1'));
-    //    //
-    // }
     _renderSectionItem = ({section}) => {
         return (
             <FlatList

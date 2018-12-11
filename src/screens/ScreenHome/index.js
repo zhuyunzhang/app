@@ -74,7 +74,7 @@ export default class ScreenHome extends Component {
                   textStyle={{ fontSize: 13, color: 'red'}}
               />
               <Card >
-                  <Badges />
+                  <Badges props={this.props}/>
               </Card>
              <Newes/>
         
