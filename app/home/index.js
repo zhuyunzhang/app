@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import {
     Image,
-    Button,
     StyleSheet,
-    Text,
     View,
     Dimensions
 } from 'react-native';
 
 import SplashScreen from "react-native-splash-screen"; 
 
-var {height,width} =  Dimensions.get('window');
+var {height, width} =  Dimensions.get('window');
 
 import * as action from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
+import Head from './Head';
 
 class Home extends Component {
 
@@ -54,35 +54,9 @@ class Home extends Component {
 
     render() {
         const { actions, state, navigation } = this.props;
-        const onPressLearnMore = () => {
-            console.log(actions.UserInfo(10001, null, (s, d)=>{
-                console.log(s)
-            	console.log(d)
-            }))
-            if (navigation) {
-                this.props.navigation.navigate('Mine');
-            }
-        }
-        console.log("==>", state.user_info);
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to 任务管理! HOME
-                </Text>
-                <Text style={styles.instructions} onClick={()=>{
-                    console.log("hhh")
-                }}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Button
-                  onPress={onPressLearnMore}
-                  title="Learn More"
-                  color="#841584"
-                  accessibilityLabel="Learn more about this purple button"/>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload,{'\n'}
-                    Cmd+D or shake for dev menu
-                </Text>
+                <Head props={this.props}/>
             </View>
         );
     }
@@ -97,18 +71,6 @@ export default connect(state => ({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+    }
 });

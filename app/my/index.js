@@ -63,7 +63,7 @@ class Home extends Component {
                 this.props.navigation.navigate('Mine');
             }
         }
-        console.log("==>", state.user_info);
+
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
