@@ -10,13 +10,17 @@ import {
     Text, 
     TouchableOpacity, 
     StyleSheet,
-    Image 
+    Image
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 const numColumns = 4;
 
-export default class Me extends Component {
+export default class gird extends Component {
+    constructor(props){
+      super(props);
+      this.navigation = props.navigation;
+    }
     render() {
         const data = [{
             content: [
@@ -51,7 +55,7 @@ export default class Me extends Component {
             <TouchableOpacity 
                 activeOpacity={0.7}
                 style={styles.item}
-               onPress={()=>{Alert.alert(">>>点击 "+item.title)}}
+                onPress={this.onPressImage.bind(this)} 
             >
                 <Image 
                     source={{uri: item.key}}  
@@ -61,6 +65,15 @@ export default class Me extends Component {
             </TouchableOpacity>
         )
     }
+    onPressImage() {
+      alert(JSON.stringify(this.props));
+      
+    }
+
+    // onPressImage() {
+    //      alert(this.props.navigation.navigate('ScreenSome1'));
+    //    //
+    // }
     _renderSectionItem = ({section}) => {
         return (
             <FlatList

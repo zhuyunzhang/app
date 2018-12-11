@@ -4,18 +4,19 @@
 import React, {Component} from 'react';
 import {
   Image,
-  Dimensions,
-  TouchableOpacity,
-  Alert,
-  View
+  Dimensions
 } from 'react-native'
 
 import SplashScreen from "react-native-splash-screen"; 
 import view from './view';
 
-var {height,width} =  Dimensions.get('window');
+var {height} =  Dimensions.get('window');
 
 export default class ScreenHome extends Component {
+  constructor(props) {
+    super(props);
+    this.navigation = props.navigation;
+  }
   componentDidMount() {
     // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
     setTimeout(() => {

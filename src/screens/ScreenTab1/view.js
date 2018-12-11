@@ -7,7 +7,7 @@ export default self => (
    <View>
     <Text style={{ fontSize: pxToDp(36) }}>home</Text>
 
-    <Button title="goSome1" onPress={() => self.navigation.navigate('ScreenSome1')} />
+    <Button title="goSome1" onPress={() => self.navigation.navigate('Scanning')} />
 
 
     <Button title="goSome2Modal" onPress={() => self.navigation.navigate('ScreenSome2Modal')} />

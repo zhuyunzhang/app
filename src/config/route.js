@@ -10,6 +10,7 @@ import ScreenSome2 from '../screens/ScreenSome2';
 import ScreenTab1 from '../screens/ScreenTab1';
 import ScreenTab2 from '../screens/ScreenTab2';
 import ScreenTab3 from '../screens/ScreenTab3';
+import Scanning from '../screens/Scanning';
 
 /**
  * 自定义 StackNavigator，可以选择 screen 进入方式
@@ -52,6 +53,7 @@ const AppNavigator = StackModalNavigator({
   ScreenTab1: { screen: ScreenTab1 }, 
   ScreenTab2: { screen: ScreenTab2 }, 
   ScreenTab3: { screen: ScreenTab3 },
+  Scanning:{screen: Scanning }
 });
 const App = createAppContainer(AppNavigator)
 export default App
