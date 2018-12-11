@@ -2,22 +2,9 @@
  * index.js
  * 更改为持久化存储
  */
-import React from "react";
-import { PersistGate } from "redux-persist/es/integration/react";
-import configureStore from "./src/redux/store";
-import { AppRegistry } from "react-native";
-import { Provider } from "react-redux";
-import App from "./App";
+import {StatusBar, AppRegistry} from 'react-native';
+import App from './app/App';
+import {name as appName} from './app.json';
 
-const { persistor, store } = configureStore();
-
-const ReduxApp = () => (
-  // 配置 Provider 为根组件，同时传入 store 作为其属性
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <App />
-    </PersistGate>
-  </Provider>
-);
-
-AppRegistry.registerComponent("xrzn", () => ReduxApp);
+StatusBar.setBarStyle('light-content', true);
+AppRegistry.registerComponent(appName, () => App);
