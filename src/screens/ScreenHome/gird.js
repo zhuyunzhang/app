@@ -1,87 +1,97 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
- 
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  ListView,
-  TouchableOpacity,
-  Image,
-  Text,
-  Alert,
-  View,
-  Dimensions
+import { 
+    Dimensions, 
+    SafeAreaView,
+    SectionList, 
+    FlatList,
+    Alert,
+    View, 
+    Text, 
+    TouchableOpacity, 
+    StyleSheet,
+    Image 
 } from 'react-native';
-//导入数据
-import ShareData from "../../json/shareData.json";
-//获取屏幕宽度
-let {width} = Dimensions.get('window');
-//常量设置
-let cols = 3;
-let cellWH =100;
-let vMargin = (width-cellWH*cols)/(cols+1);
-let hMargin = 25;
- 
- 
-export default class gird extends Component {
- 
- constructor(props){
-  super(props);
-  //1.设置数据源
-  let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-  //2.设置返回数据
-  this.state = {dataSource:ds.cloneWithRows(ShareData.data)};
-  thiz = this;
- }
- 
-  render() {
-    return (
-     <ListView
-      dataSource={this.state.dataSource}
-      renderRow={this._renderRow}
-      contentContainerStyle={styles.listViewStyle}
-     />
-    );
-  }
- 
-  _renderRow(rowData){
-     return(
-    <TouchableOpacity activeOpacity={1} onPress={()=>{thiz._onPress(rowData.title)}}>
-    <View style={styles.innerViewStyle}>
-      <Image source={{uri:rowData.img}} style={styles.iconStyle}/>
-      <Text>{rowData.title}</Text>
-    </View>
-    </TouchableOpacity>
-    );
-  }
- 
-  _onPress(e) {
- 
-    alert(">>>点击 "+e);
-  }
- 
-}
- 
- 
+const { width, height } = Dimensions.get('window');
+
+const numColumns = 4;
+
+export default class Me extends Component {
+    render() {
+        const data = [{
+            content: [
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '排行榜'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '审帖'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '漫画'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的收藏'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '附近'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '随机穿越'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '意见反馈'},
+                {key: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '更多'},
+            ],
+            key: 'content',
+        }];
+        return (
+            <SafeAreaView style={styles.container}>
+                <SectionList
+                    sections={[{data}]}
+                    renderItem={this._renderSectionItem}
+                    keyExtractor={this._keyExtractor}
+                    />
+            </SafeAreaView>
+        )
+    }
+
+    _keyExtractor = (item, index) => {
+        return item.key;
+    }
+
+
+    _renderItem = ({item}) => {
+        return (
+            <TouchableOpacity 
+                activeOpacity={0.7}
+                style={styles.item}
+               onPress={()=>{Alert.alert(">>>点击 "+item.title)}}
+            >
+                <Image 
+                    source={{uri: item.key}}  
+                    style={styles.itemImage}
+                />
+                <Text style={styles.itemText}>{item.title}</Text>
+            </TouchableOpacity>
+        )
+    }
+    _renderSectionItem = ({section}) => {
+        return (
+            <FlatList
+                data={section.data[0].content}
+                numColumns={numColumns}
+                renderItem={this._renderItem}
+                style={{backgroundColor: '#fff'}}
+                scrollEnabled={false}
+            />
+        )
+    }
+};
+
 const styles = StyleSheet.create({
-  listViewStyle:{
-    flexDirection:'row',
-    flexWrap:'wrap',
-    alignItems:'center',
-  },
-  iconStyle:{
-    width:50,
-    height:50,
-  },
-  innerViewStyle:{
-   justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 0.2,
-    borderColor: '#dddddd',
-    width: width / 3,
-    height: 70,
-  }
-});
+    container: {
+        flex: 1,
+    },
+    item: {
+        backgroundColor: '#fff',
+        width: width/numColumns,
+        height: 80,  
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    itemImage: {
+        width: 40,
+        height: 40,
+        marginBottom: 5,
+    },
+    itemText: {
+        fontSize: 12,
+    }
+
+})
