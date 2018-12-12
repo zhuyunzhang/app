@@ -23,6 +23,8 @@ class Home extends Component {
         setTimeout(() => {
             SplashScreen.hide();
         }, 3000);
+        const {actions, state} = this.props;
+        actions.UserInfo(10001, null, null)
     }
 
     static headersFind={
@@ -54,14 +56,20 @@ class Home extends Component {
 
     render() {
         const { actions, state, navigation } = this.props;
+        var info = {};
+        const {user_info} = state;
+        if(user_info != null){
+            info = user_info;
+        }
         const onPressLearnMore = () => {
-            console.log(actions.UserInfo(10001, null, (s, d)=>{
-                console.log(s)
-            	console.log(d)
-            }))
-            if (navigation) {
-                this.props.navigation.navigate('Mine');
-            }
+            // actions.UserInfo(10001, null, (s, d)=>{
+            //     alert(s)
+            // 	alert(d)
+            // })
+            // if (navigation) {
+            //     this.props.navigation.navigate('Mine');
+            // }
+            alert(JSON.stringify(info))
         }
 
         return (
@@ -72,7 +80,7 @@ class Home extends Component {
                 <Text style={styles.instructions} onClick={()=>{
                     console.log("hhh")
                 }}>
-                    To get started, edit index.ios.js
+                   {info.nick_name}
                 </Text>
                 <Button
                   onPress={onPressLearnMore}
