@@ -3,14 +3,15 @@ import {
     Image,
     StyleSheet,
     View,
-    Dimensions
+    Dimensions,
+    ScrollView
 } from 'react-native';
 
 import SplashScreen from "react-native-splash-screen"; 
 
 var {height, width} =  Dimensions.get('window');
 
-import * as action from '../actions';
+import * as action from '../../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -40,13 +41,14 @@ class Home extends Component {
     };
 
     static navigationOptions = {
-        title: '首页',
-        tabBarIcon: ({ focused }) => {
-            const icon = focused ? require('../images/home.png') : require('../images/home1.png');
-            return <Image source={icon} style={{ height: 22, width: 22 }} />;
-        },
-    };
-    
+    title: '首页',
+    tabBarIcon: ({ focused }) => {
+      const icon = focused
+        ? require('../../images/home.png')
+        : require('../../images/home1.png');
+      return <Image source={icon} style={{ height: 22, width: 22 }} />;
+    },
+  };
     constructor(props) {
         super(props);
         this.navigation = props.navigation;
@@ -55,9 +57,9 @@ class Home extends Component {
     render() {
         const { actions, state, navigation } = this.props;
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.containers}>
                 <Head props={this.props}/>
-            </View>
+            </ScrollView>
         );
     }
 }

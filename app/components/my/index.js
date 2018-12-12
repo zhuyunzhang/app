@@ -12,7 +12,7 @@ import SplashScreen from "react-native-splash-screen";
 
 var {height,width} =  Dimensions.get('window');
 
-import * as action from '../actions';
+import * as action from '../../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -44,7 +44,7 @@ class Home extends Component {
     static navigationOptions = {
         title: '我的',
         tabBarIcon: ({ focused }) => {
-            const icon = focused ? require('../images/geren.png') : require('../images/geren1.png');
+            const icon = focused ? require('../../images/geren.png') : require('../../images/geren1.png');
             return <Image source={icon} style={{ height: 22, width: 22 }} />;
         },
     };
@@ -69,7 +69,8 @@ class Home extends Component {
             // if (navigation) {
             //     this.props.navigation.navigate('Mine');
             // }
-            alert(JSON.stringify(info))
+            //alert(JSON.stringify(navigation))
+           navigation.navigate('Scanning') 
         }
 
         return (
