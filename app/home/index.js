@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     Image,
-    StyleSheet,
     View,
     Dimensions
 } from 'react-native';
@@ -68,9 +67,9 @@ export default connect(state => ({
 	actions: bindActionCreators(action.user, dispatch)
 }))(Home);
 
-const styles = StyleSheet.create({
+const styles = {
     container: {
         flex: 1,
         backgroundColor: '#F5FCFF',
     }
-});
+};
