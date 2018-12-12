@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 
 var {height,width} =  Dimensions.get('window');
-
+import Swiper from 'react-native-swiper'
 import * as action from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import * as styles from './styles';
 
 class HomeHead extends Component {
 
@@ -24,8 +25,18 @@ class HomeHead extends Component {
         const { actions, state, navigation } = this.props;
 
         return (
-            <View>
-                <Text style={{color: "#000"}}>我是头</Text>
+            <View style={styles.headsty.container}>
+                <Swiper style={styles.headsty.wrapper} height={height/5} autoplayTimeout={4} horizontal={true} autoplay={ true }>
+                    <View style={styles.headsty.slide}>
+                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper1.png')} />
+                    </View>
+                    <View style={styles.headsty.slide}>
+                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper2.png')} />
+                    </View>
+                    <View style={styles.headsty.slide}>
+                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper3.png')} />
+                    </View>
+                </Swiper>
             </View>
         );
     }
