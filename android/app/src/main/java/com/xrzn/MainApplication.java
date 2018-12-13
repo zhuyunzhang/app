@@ -3,6 +3,7 @@ package com.xrzn;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.lewin.qrcode.QRScanReaderPackage;
 import org.reactnative.camera.RNCameraPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new QRScanReaderPackage(),
             new RNCameraPackage(),
             new SplashScreenReactPackage(),
             new RNGestureHandlerPackage()

@@ -55,7 +55,6 @@ class HomeHead extends Component {
         );
     }
 }
-
 export default connect(state => ({
 	state: state.user
 }), (dispatch) => ({

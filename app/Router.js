@@ -1,36 +1,3 @@
-// import React, { Component } from 'react';
-
-// //import Home from './home';
-// // import Home from './components/Home';
-
-// // import {StackNavigator} from 'react-navigation'; 
-
-// import { createStackNavigator, createAppContainer } from 'react-navigation'
-
-// export default class Router extends Component {
-// 	render() {
-// 		return(
-// 			<App/>
-// 		)
-// 	}
-// };
-
-// import ScreenBottomTab from './Views';
-
-// const navigator = createStackNavigator({
-// 	ScreenBottomTab: ScreenBottomTab,
-// })
-  
-// const App = createAppContainer(navigator)
-
-
-// // const Navigator = StackNavigator({  
-// //     Home:{screen:Home}, 
-// // },{
-// // 	navigationOptions: {
-// // 		header: null
-// // 	}
-// // }); 
 
 // 引入依赖
 import React from 'react';
@@ -80,26 +47,4 @@ const AppNavigator = StackModalNavigator({
 const App = createAppContainer(AppNavigator)
 export default App
 
-// navigationOptions:{header: null}
-// import React, { Component } from 'react'
-// import { createStackNavigator, createAppContainer } from 'react-navigation'
 
-// //引入页面组件
-// import ScreenHome from "../screens/ScreenHome";
-// import ScreenSome1 from '../screens/ScreenSome1'
-
-
-// // 配置路由
-// const navigator = createStackNavigator({
-//   ScreenHome: { screen: ScreenHome }, 
-//   /*或者
-//   Home: {
-//     screen: HomeScreen
-//   }
-//   */
-//   ScreenSome1: { screen: ScreenSome1 }
-// })
-
-// const App = createAppContainer(navigator)
-
-// export default App
