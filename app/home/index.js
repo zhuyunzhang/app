@@ -4,7 +4,7 @@ import {
     View,
     Dimensions
 } from 'react-native';
-
+import { Button } from 'antd-mobile-rn';
 import SplashScreen from "react-native-splash-screen"; 
 
 var {height, width} =  Dimensions.get('window');
@@ -56,6 +56,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Head props={this.props}/>
+                <Button type="primary"/>
             </View>
         );
     }
