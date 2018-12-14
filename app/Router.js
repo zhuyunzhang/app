@@ -6,6 +6,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 // 引入页面组件
 import ScreenBottomTab from './Views';;
 import Scanning from './components/home/scanning';
+import RechargeLine from './components/home/rechargeline';
 
 /**
  * 自定义 StackNavigator，可以选择 screen 进入方式
@@ -42,7 +43,8 @@ const StackModalNavigator = (routeConfigs, navigatorConfig) => {
 const AppNavigator = StackModalNavigator({
   ScreenBottomTab: ScreenBottomTab,
   //下面几个配置的是测试Navigator不同使用场景用，只需要tab的话，只要ScreenBottomTab: ScreenBottomTab即可
-  Scanning:{screen: Scanning }
+  Scanning:{screen: Scanning },
+  RechargeLine:{screen: RechargeLine }
 });
 const App = createAppContainer(AppNavigator)
 export default App

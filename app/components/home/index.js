@@ -4,7 +4,8 @@ import {
     StyleSheet,
     View,
     Dimensions,
-    ScrollView
+    ScrollView,
+    TouchableOpacity
 } from 'react-native';
 
 import SplashScreen from "react-native-splash-screen"; 
@@ -14,7 +15,6 @@ var {height, width} =  Dimensions.get('window');
 import * as action from '../../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
 import Head from './Head';
 
 class Home extends Component {
@@ -38,6 +38,13 @@ class Home extends Component {
             flex:1,
             textAlign: 'center'
         }
+        // headerRight:(
+        //     <View style={{marginRight:30/1536*width}}>
+        //         <TouchableOpacity onPress={() =>this.props.navigation.navigate("Scanning")}>
+        //             <Image source={require('./images/sys1.png')} style={{width: 21.5/600*width*2,height: 20.5/600*width*2}} />
+        //         </TouchableOpacity>
+        //     </View>
+        // )
     };
 
     static navigationOptions = {

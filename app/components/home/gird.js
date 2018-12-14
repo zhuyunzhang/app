@@ -32,12 +32,11 @@ const numColumns = 4;
         const data = [{
             content: [
                 { key:1,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '扫一扫'},
-                { key:2,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '审帖'},
-                { key:3,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '漫画'},
-                { key:4,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的收藏'},
-                { key:5,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '附近'},
-                { key:6,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '意见反馈'},
-                { key:7,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '更多'},
+                { key:2,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '常用设备'},
+                { key:3,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '绑定卡片'},
+                { key:4,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '在线充值'},
+                { key:5,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的钱包'},
+                { key:6,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '论坛'},
             ],
             img: 'content',
         }];
@@ -77,6 +76,11 @@ const numColumns = 4;
             const{navigation}=this.props.props
             if(navigation){
                 navigation.navigate('Scanning') 
+            }
+        }else if(keys===4){
+            const{navigation}=this.props.props
+            if(navigation){
+                navigation.navigate('RechargeLine') 
             }
         }else{
             alert("==>"+title)
