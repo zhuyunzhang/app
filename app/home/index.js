@@ -4,8 +4,15 @@ import {
     View,
     Dimensions
 } from 'react-native';
-import { Button } from 'antd-mobile-rn';
+import { Grid } from 'antd-mobile-rn';
+
+import List from 'antd-mobile-rn/lib/list';
 import SplashScreen from "react-native-splash-screen"; 
+
+const data = Array.from(new Array(8)).map((_val, i) => ({
+    icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+    text: `name${i}`,
+}));
 
 var {height, width} =  Dimensions.get('window');
 
@@ -16,7 +23,6 @@ import {bindActionCreators} from 'redux';
 import Head from './Head';
 
 class Home extends Component {
-
     componentDidMount() {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
         setTimeout(() => {
@@ -46,6 +52,10 @@ class Home extends Component {
         },
     };
     
+    onChange = (value) => {
+        this.setState({ value });
+    }
+
     constructor(props) {
         super(props);
         this.navigation = props.navigation;
@@ -54,9 +64,8 @@ class Home extends Component {
     render() {
         const { actions, state, navigation } = this.props;
         return (
-            <View style={styles.container}>
-                <Head props={this.props}/>
-                <Button type="primary"/>
+            <View>
+                <Grid data={data} activeStyle={false} hasLine={false}/>
             </View>
         );
     }

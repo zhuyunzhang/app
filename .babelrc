@@ -1,3 +1,6 @@
 {
-  "presets": ["module:metro-react-native-babel-preset"]
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+    ["import", { "libraryName": "antd-mobile-rn" }] // 与 Web 平台的区别是不需要设置 style
+  ]
 }
