@@ -30,7 +30,7 @@ class Home extends Component {
     static headersFind={
         headerTitle: '我的',
         headerStyle: {
-            backgroundColor: '#66CDAA',
+            backgroundColor: '#108ee9',
             height :height/15
         },
         headerTintColor: '#fff',

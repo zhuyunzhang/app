@@ -2,26 +2,28 @@ import React, { Component } from 'react';
 import {
     Image,
     View,
+    Text,
     Dimensions
 } from 'react-native';
-import { Grid } from 'antd-mobile-rn';
-
-import List from 'antd-mobile-rn/lib/list';
+import { Grid, Popover } from 'antd-mobile-rn';
 import SplashScreen from "react-native-splash-screen"; 
+import { IconFill, IconOutline } from "@ant-design/icons-react-native";
 
 const data = Array.from(new Array(8)).map((_val, i) => ({
     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
     text: `name${i}`,
 }));
 
-var {height, width} =  Dimensions.get('window');
-
 import * as action from '../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
 import Head from './Head';
+import PopoverView from './PopoverView';
 
+const Item = Popover.Item;
+const {height, width} =  Dimensions.get('window');
+const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
+const self = this;
 class Home extends Component {
     componentDidMount() {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
@@ -29,11 +31,17 @@ class Home extends Component {
             SplashScreen.hide();
         }, 3000);
     }
-
+    
     static headersFind={
         headerTitle: '首页',
+        headerRight:(
+            <View style={{marginRight: 5}}>
+                {/* <IconOutline name={"ellipsis"} color="#FFF" size={30}/> */}
+                <PopoverView/>
+            </View>
+        ),
         headerStyle: {
-            backgroundColor: '#66CDAA',
+            backgroundColor: '#108ee9',
             height :height/15
         },
         headerTintColor: '#fff',
@@ -58,14 +66,21 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.navigation = props.navigation;
+        this.state = {
+            visible: true,
+            selected: '',
+        };
+        // this.navigation = props.navigation;
     }
 
     render() {
         const { actions, state, navigation } = this.props;
         return (
             <View>
+               
+                <Head/>
                 <Grid data={data} activeStyle={false} hasLine={false}/>
+                
             </View>
         );
     }
