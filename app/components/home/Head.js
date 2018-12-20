@@ -18,24 +18,52 @@ import {bindActionCreators} from 'redux';
 import * as styles from './styles';
 import Badges from './gird';
 import Newes from './news';
-import { Card,CardItem ,Button,Container, Content, Thumbnail, Left, Body, Right} from 'native-base';
+import { Card,CardItem ,Button,Container, Content, Thumbnail, Left, Body, Right,Picker ,Form,Item} from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-
+var walletdata = [
+    {
+        "title": "钱包1",
+        "walleid": 12,
+        "id":0,
+        "walletmon":"80"
+    },
+    {
+        "title": "钱包2",
+        "id":1,
+        "walleid": 13,
+        "walletmon":"100"        
+    }
+]
 class HomeHead extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          active:true
+          active:true,
+          selected2: undefined,
+          walletmoney:undefined
         };
     }
 
     componentDidMount() {
-        // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
+        this.setState({
+          walletmoney: walletdata[0].walletmon
+        });
+        // 隐藏启动页，walletdata[index].walletmon如果不设置消失时间，在组件加载完启动页自动隐藏
     }
-
+    onValueChange2(value: string,keys:string) {
+        var index =parseInt(keys)
+        this.setState({
+          selected2: value,
+          walletmoney:walletdata[index].walletmon
+        });
+    }
     render() {
         const { actions, state, navigation } = this.props;
-
+        var WalletItem = (item, i) => {
+            return(
+                <Picker.Item label={item.title} value={item.id}/>
+            )
+        }
         return (
             <View>
                 <Swiper style={styles.headsty.wrapper} height={height/5} autoplayTimeout={4} horizontal={true} autoplay={ true }>
@@ -58,6 +86,32 @@ class HomeHead extends Component {
                 <Card >
                     <Badges props={this.props.props}/>
                 </Card >
+                <View>
+                    <Card style={{ height: height/9,margin:10}}>
+                    <Form>
+                        <Item picker>
+                            <Picker
+                                mode="dropdown"
+                                style={{marginLeft:10}}
+                                placeholder="请选择你的钱包"
+                                placeholderStyle={{ color:"#bfc6ea" }}
+                                placeholderIconColor="#007aff"
+                                selectedValue={this.state.selected2}
+                                onValueChange={this.onValueChange2.bind(this)}
+                                >
+                                {walletdata.map(WalletItem)}
+                            </Picker>
+                        </Item>
+                    </Form>
+                        <CardItem>
+                            <Body>
+                                <Text>
+                                    当前钱包余额￥{this.state.walletmoney}元
+                                </Text>
+                            </Body>
+                        </CardItem>                        
+                    </Card>
+                </View>
                 <Grid>
                     <Col style={{ backgroundColor: '#635DB7', borderRadius: 5, height: height/8 ,margin:8}}>
                         <Card style={{ height: height/9}}>

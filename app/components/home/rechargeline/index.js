@@ -49,12 +49,12 @@ const numColumns = 3;
     render() {
         const data = [{
             content: [
-                { key:1,money: 10, title: '赠送2元'},
-                { key:2,money: 30, title: '赠送7元'},
-                { key:3,money: 50, title: '赠送12元'},
-                { key:4,money: 100, title: '赠送20元'},
-                { key:5,money: 70, title: '赠送70元'},
-                { key:6,money: 120, title: '赠送120元'},
+                { key:1,money: 10, title: 2},
+                { key:2,money: 30, title: 7},
+                { key:3,money: 50, title: 12},
+                { key:4,money: 100, title: 20},
+                { key:5,money: 200, title: 50},
+                { key:6,money: 300, title: 80},
             ],
             img: 'content',
         }];
@@ -120,15 +120,16 @@ const numColumns = 3;
                     this.setModalVisible(true,item.key,item.money)
                 }}
             >
-              <Text style={styles.itemText1}>{item.money}</Text>
-              <Text style={styles.itemText2}>{item.title}</Text>
+              <Text style={styles.itemText1}>{item.money}元</Text>
+              <Text style={styles.itemText2}>赠送{item.title}元</Text>
             </TouchableOpacity>
         )
     }
     onPressImage(keys,title) {
         alert(keys+"========>>>>>"+title);
         // if(keys===1){
-        //     const{navigation}=this.props
+        //     const{navigation}=this.props){
+
         //     if(navigation){
         //         navigation.navigate('Scanning') 
         //     }
@@ -139,8 +140,7 @@ const numColumns = 3;
         //     }
         // }else{
         //      const{navigation}=this.props
-        //     if(navigation){
-        //         navigation.navigate('Dialog') 
+        //     if(navigation        //         navigation.navigate('Dialog') 
         //     }
         // }
         
