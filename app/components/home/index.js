@@ -5,7 +5,8 @@ import {
     View,
     Dimensions,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    StatusBar 
 } from 'react-native';
 
 import SplashScreen from "react-native-splash-screen"; 
@@ -65,6 +66,9 @@ class Home extends Component {
         const { actions, state, navigation } = this.props;
         return (
             <ScrollView style={styles.containers}>
+                 <StatusBar
+                  backgroundColor={'#66CDAA'}
+                  />
                 <Head props={this.props}/>
             </ScrollView>
         );

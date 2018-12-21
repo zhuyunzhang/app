@@ -21,6 +21,9 @@ export function UserInfo(id, params, callback) {
 export function GetSignes(id, callback) {
     return getRequest(`/users/${id}/messages/states/sign`, callback);
 }
+export function GetProducts(id, callback) {
+    return getRequest(`/users/${id}/messages/states/pro`, callback);
+}
 
 
 function getRequest(url, params) {

@@ -10,11 +10,12 @@ import * as types from '../actions/actionTypes';
 const initialState = {
 	signs_info:null,
 	user_info: null,
+	products_info:null,
 
 };
 
 export default function user(state = initialState, action = {}) {
-	// console.log(`reducers project: ${action.type}`);
+	// console.log(`reducers project: ${action.type}`);SET_PRODUCTS
 	switch(action.type) {
 	case types.SET_USER_INFO:
 		return Object.assign(
@@ -25,6 +26,11 @@ export default function user(state = initialState, action = {}) {
 		return Object.assign(
             {}, state,
             {signs_info: action.data}
+        );
+    case types.SET_PRODUCTS:
+		return Object.assign(
+            {}, state,
+            {products_info: action.data}
         );
 	default:
 		return state;

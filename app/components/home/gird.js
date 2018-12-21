@@ -83,8 +83,7 @@ const numColumns = 4;
             }
         }else{
             alert("==>"+title)
-        }
-        
+        }    
     }
     _renderSectionItem = ({section}) => {
         return (

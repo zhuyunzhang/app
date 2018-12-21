@@ -35,6 +35,8 @@ const numColumns = 3;
     }
     componentDidMount() {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
+        const {actions, state} = this.props;
+        actions.GetProducts(10001,null)
     }
     setModalVisible(visible,keies,moneies) {
         this.setState({
@@ -47,23 +49,21 @@ const numColumns = 3;
         this.setState({modalVisible: false});
     }
     render() {
-        const data = [{
-            content: [
-                { key:1,money: 10, title: 2},
-                { key:2,money: 30, title: 7},
-                { key:3,money: 50, title: 12},
-                { key:4,money: 100, title: 20},
-                { key:5,money: 200, title: 50},
-                { key:6,money: 300, title: 80},
-            ],
-            img: 'content',
-        }];
+
+        const { actions, state, navigation } = this.props;
+        var productsinfo = {};
+        const {products_info} = state;
+        if(products_info != null){
+            productsinfo = products_info;
+        }
+        const data = [];
+        data.push(productsinfo)
         return (
            
             <View style={styles.container}>
                 <H3 style={{margin:10}}>在线充值</H3>
                 <SectionList
-                    sections={[{data}]}
+                    sections={[{data}]} 
                     renderItem={this._renderSectionItem}
                     keyExtractor={this._keyExtractor}
                     />

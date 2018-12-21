@@ -12,11 +12,11 @@ import SplashScreen from "react-native-splash-screen";
 
 var {height,width} =  Dimensions.get('window');
 
-import * as action from '../../actions';
+import * as action from '../../../actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-class Wallet extends Component {
+class UnCompleteList extends Component {
 
     componentDidMount() {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
@@ -26,29 +26,6 @@ class Wallet extends Component {
         const {actions, state} = this.props;
         actions.UserInfo(10001, null, null)
     }
-
-    static headersFind={
-        headerTitle: '在线充值',
-        headerStyle: {
-            backgroundColor: '#66CDAA',
-            height :height/15
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            flex:1,
-            textAlign: 'center'
-        }
-    };
-
-    static navigationOptions = {
-        title: '充值',
-        tabBarIcon: ({ focused }) => {
-            const icon = focused ? require('../../images/pay.png') : require('../../images/pay1.png');
-            return <Image source={icon} style={{ height: 22, width: 22 }} />;
-        },
-    };
-    
     constructor(props) {
         super(props);
         this.navigation = props.navigation;
@@ -64,7 +41,7 @@ class Wallet extends Component {
         const onPressLearnMore = () => {
             // actions.UserInfo(10001, null, (s, d)=>{
             //     alert(s)
-            //  alert(d)
+            // 	alert(d)
             // })
             // if (navigation) {
             //     this.props.navigation.navigate('Mine');
@@ -75,7 +52,7 @@ class Wallet extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to 任务管理! HOME
+                    Welcome to 任务管理2! HOME
                 </Text>
                 <Text style={styles.instructions} onClick={()=>{
                     console.log("hhh")
@@ -97,10 +74,10 @@ class Wallet extends Component {
 }
 
 export default connect(state => ({
-    state: state.user
+	state: state.user
 }), (dispatch) => ({
-    actions: bindActionCreators(action.user, dispatch)
-}))(Wallet);
+	actions: bindActionCreators(action.user, dispatch)
+}))(UnCompleteList);
 
 const styles = StyleSheet.create({
     container: {
