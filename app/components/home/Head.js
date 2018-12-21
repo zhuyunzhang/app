@@ -20,7 +20,7 @@ import Badges from './gird';
 import Newes from './news';
 import { Card,CardItem ,Button,Container, Content, Thumbnail, Left, Body, Right,Picker ,Form,Item} from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-var walletdata = [
+/*var walletdata = [
     {
         "title": "钱包1",
         "walleid": 12,
@@ -33,37 +33,37 @@ var walletdata = [
         "walleid": 13,
         "walletmon":"100"        
     }
-]
+]*/
 class HomeHead extends Component {
     constructor(props) {
         super(props);
         this.state = {
           active:true,
-          selected2: undefined,
-          walletmoney:undefined
+/*          selected2: undefined,
+          walletmoney:undefined*/
         };
     }
 
     componentDidMount() {
-        this.setState({
+      /*  this.setState({
           walletmoney: walletdata[0].walletmon
-        });
+        });*/
         // 隐藏启动页，walletdata[index].walletmon如果不设置消失时间，在组件加载完启动页自动隐藏
     }
-    onValueChange2(value: string,keys:string) {
+/*    onValueChange2(value: string,keys:string) {
         var index =parseInt(keys)
         this.setState({
           selected2: value,
           walletmoney:walletdata[index].walletmon
         });
-    }
+    }*/
     render() {
         const { actions, state, navigation } = this.props;
-        var WalletItem = (item, i) => {
+   /*     var WalletItem = (item, i) => {
             return(
                 <Picker.Item label={item.title} value={item.id}/>
             )
-        }
+        }*/
         return (
             <View>
                 <Swiper style={styles.headsty.wrapper} height={height/5} autoplayTimeout={4} horizontal={true} autoplay={ true }>
@@ -86,7 +86,7 @@ class HomeHead extends Component {
                 <Card >
                     <Badges props={this.props.props}/>
                 </Card >
-                <View>
+               {/* <View>
                     <Card style={{ height: height/9,margin:10}}>
                     <Form>
                         <Item picker>
@@ -111,7 +111,7 @@ class HomeHead extends Component {
                             </Body>
                         </CardItem>                        
                     </Card>
-                </View>
+                </View>*/}
                 <Grid>
                     <Col style={{ backgroundColor: '#635DB7', borderRadius: 5, height: height/8 ,margin:8}}>
                         <Card style={{ height: height/9}}>

@@ -28,10 +28,10 @@ const numColumns = 3;
       super(props);
       this.navigation = props.navigation;
       this.state = {
-        modalVisible: false,
-        keys:0,
-        moneys:0
-    };
+            modalVisible: false,
+            keys:0,
+            moneys:0
+        };
     }
     componentDidMount() {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏

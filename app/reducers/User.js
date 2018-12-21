@@ -8,7 +8,9 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-	user_info: null
+	signs_info:null,
+	user_info: null,
+
 };
 
 export default function user(state = initialState, action = {}) {
@@ -18,6 +20,11 @@ export default function user(state = initialState, action = {}) {
 		return Object.assign(
             {}, state,
             {user_info: action.data}
+        );
+	case types.SET_SIGNS:
+		return Object.assign(
+            {}, state,
+            {signs_info: action.data}
         );
 	default:
 		return state;

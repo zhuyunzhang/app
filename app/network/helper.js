@@ -6,7 +6,7 @@
 'use strict';
 
 
-api.API_ROOT = "http://test.qianuuu.cn:8506";
+api.API_ROOT = "http://192.168.22.7:8616";
 
 // if (c.debugUrl) {
 //     api.API_ROOT = c.debugHost;

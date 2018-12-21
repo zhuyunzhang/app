@@ -1,5 +1,5 @@
 var api = {
-	API_ROOT: "http://test.qianuuu.cn:8506",
+	API_ROOT: "http://192.168.22.7:8616",
 	API_TOKEN: ""
 };
 
@@ -16,6 +16,10 @@ export function getToken(token) {
 // 获取用户信息
 export function UserInfo(id, params, callback) {
     return getRequest(`/users/${id}`, params, callback);
+}
+
+export function GetSignes(id, callback) {
+    return getRequest(`/users/${id}/messages/states/sign`, callback);
 }
 
 

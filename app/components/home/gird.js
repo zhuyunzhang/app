@@ -26,20 +26,19 @@ const numColumns = 4;
       this.navigation = props.navigation;
     }
     componentDidMount() {
+        const {actions, state} = this.props;
+        actions.GetSignes(10001,null)
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
     }
     render() {
-        const data = [{
-            content: [
-                { key:1,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '扫一扫'},
-                { key:2,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '常用设备'},
-                { key:3,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '绑定卡片'},
-                { key:4,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '在线充值'},
-                { key:5,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '我的钱包'},
-                { key:6,img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545036342&di=aabc44e3672d5c6b2a661e76dea316c1&imgtype=jpg&er=1&src=http%3A%2F%2Fimage.tupian114.com%2F20140417%2F09021885.png.thumb.jpg', title: '论坛'},
-            ],
-            img: 'content',
-        }];
+        const { actions, state, navigation } = this.props;
+        var signsinfo = {};
+        const {signs_info} = state;
+        if(signs_info != null){
+            signsinfo = signs_info;
+        }
+        const data = [];
+        data.push(signsinfo)
         return (
             <SafeAreaView style={styles.container}>
                 <SectionList
