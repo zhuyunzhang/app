@@ -36,7 +36,7 @@ class Wallet extends Component {
       page: 0,
       refreshstate: RefreshState.HeaderRefreshing
     });
-    fetch(`http://192.168.22.10:8616/agent/10001/lower/order/list/0?pageindex=0&pagesize=9`)
+    fetch(`http://192.168.22.10:8616/agent/10001/lower/order/list/0?pageindex=0&pagesize=2`)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -61,7 +61,7 @@ class Wallet extends Component {
       page: 0,
       refreshstate: RefreshState.HeaderRefreshing
     });
-    fetch(`http://192.168.22.10:8616/agent/10001/lower/order/list/0?pageindex=0&pagesize=9`)
+    fetch(`http://192.168.22.10:8616/agent/10001/lower/order/list/0?pageindex=0&pagesize=2`)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -84,7 +84,7 @@ class Wallet extends Component {
     fetch(
       `http://192.168.22.10:8616/agent/10001/lower/order/list/0?pageindex=${
         this.state.page
-      }&pagesize=9`
+      }&pagesize=2`
     )
       .then(response => response.json())
       .then(responseJson => {
@@ -100,7 +100,9 @@ class Wallet extends Component {
         });
       });
   };
-
+  	onPressWallet(key) {
+  		alert(key)
+    }
 
     render() {	
         const { actions, state, navigation } = this.props;
@@ -112,6 +114,9 @@ class Wallet extends Component {
        
         return (
             <View style={styles.container}>
+            	<View style={styles.containers}>
+                    <Text style={styles.textStyles}>我的钱包</Text>
+                </View>
                 <RefreshListView
 		          style={{ flex: 1 }}
 		          data={this.state.dataValue}
@@ -123,21 +128,41 @@ class Wallet extends Component {
 	                });
 	              }}
 	            >
-	                <Card>
-			          	<TouchableOpacity  onPress={()=>{Alert.alert("安徽兴日智能科技有限公司!")}} >
+	                <Card style={{marginLeft:16,marginRight:16,marginBottom:25}}>
+			          	<TouchableOpacity  onPress={() => this.onPressWallet(item.pay_money)} >
 				            <CardItem style={{height: 50}}>
 				                <Left>
 				                	<Body>
-					                  	<Text>{item.nick_name}</Text>
+					                  	<Text>中国石油大学</Text>
 				                	</Body>
 				              	</Left>
 				              	<Right >
-				              		<View>
-					                  <Text>充值</Text>
-					                </View>
+				              		<Body>
+					                  	<Text style={{color:'#6495ED',fontSize:16}}>充值</Text>
+					                </Body>
 				              	</Right>
 				            </CardItem>
-			            </TouchableOpacity>
+			            
+			                <CardItem  style={{height:height/5.5}}>
+			                	<Left>
+			                		<View >
+			                			<Text style={{backgroundColor:'#5CACEE',width:width/2.5}}></Text>
+			                  		</View>
+			                	</Left>
+			                  	<Right >
+				              		<View>
+					                  <Text style={{color:'red',fontSize:20}}>￥{item.pay_money}</Text>
+					                </View>
+				              	</Right>
+			                </CardItem>
+			                <CardItem >
+			                  	<Left >
+				              		<Body>
+					                  <Text>No.12311123345</Text>
+					                </Body>
+				              	</Left>
+			                </CardItem>	
+			            </TouchableOpacity>   		                
 		          	</Card>
 	            </TouchableHighlight>
 	          )}
@@ -165,13 +190,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center',
         backgroundColor:'#66CDAA',
-        height:height/6
+        height:height/5
     },
-    textStyle:{
-       fontSize:18,
+    textStyles:{
+       fontSize:24,
        textAlign:'center',   
        justifyContent: 'center',
-       backgroundColor:'#66CDAA'
+       color:'#FFFFFF'
     }
 
 })
