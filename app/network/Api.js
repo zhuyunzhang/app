@@ -1,5 +1,5 @@
 var api = {
-	API_ROOT: "http://192.168.22.7:8616",
+	API_ROOT: "http://192.168.22.10:8616",
 	API_TOKEN: ""
 };
 
@@ -21,10 +21,14 @@ export function UserInfo(id, params, callback) {
 export function GetSignes(id, callback) {
     return getRequest(`/users/${id}/messages/states/sign`, callback);
 }
+
 export function GetProducts(id, callback) {
     return getRequest(`/users/${id}/messages/states/pro`, callback);
 }
 
+export function GetWalletList(id,params, callback) {
+    return getRequest(`/agent/${id}/lower/order/list/0`,params, callback);
+}
 
 function getRequest(url, params) {
     var curl = getUrl(url, params);

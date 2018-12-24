@@ -23,21 +23,7 @@ const { width, height } = Dimensions.get('window');
 let dialogWidth = width-80;
 
 const numColumns = 3;
-var walletdata = [
-    {
-        "title": "钱包1",
-        "walleid": 12,
-        "id":0,
-        "walletmon":"80"
-    },
-    {
-        "title": "钱包2",
-        "id":1,
-        "walleid": 13,
-        "walletmon":"100"        
-    }
-]
-class RechargeLine extends Component {
+class OrderPay extends Component {
     constructor(props){
       super(props);
       this.navigation = props.navigation;
@@ -53,17 +39,8 @@ class RechargeLine extends Component {
         // 隐藏启动页，如果不设置消失时间，在组件加载完启动页自动隐藏
         const {actions, state} = this.props;
         actions.GetProducts(10001,null)
-        this.setState({
-          walletmoney: walletdata[0].walletmon
-        });
     }
-    onValueChange2(value: string,keys:string) {
-        var index =parseInt(keys)
-        this.setState({
-          selected2: value,
-          walletmoney:walletdata[index].walletmon
-        });
-    }
+
     static navigationOptions = {
         headerStyle: {
             backgroundColor: '#66CDAA'
@@ -97,30 +74,16 @@ class RechargeLine extends Component {
         }
         return (
             <View style={styles.container}>
-                <View style={{height:height/12,backgroundColor:'#66CDAA'}}></View>
+                <View style={styles.containers}>
+                    <Text style={styles.textStyles}>中国石油大学</Text>
+                    <Text style={styles.textStyle}>入网设备（61125）</Text>
+                </View>
                 <View style={styleas.headsty.slide}>
-                    <Image resizeMode='stretch' style={styleas.headsty.image} source={require('../images/chongzhip.png')} />
+                    <Image resizeMode='stretch' style={styleas.headsty.image} source={require('../images/xiaofeip.png')} />
                 </View>
-                <View>
-                    <Form>
-                        <Item picker>
-                            <Picker
-                                mode="dropdown"
-                                style={{marginLeft:10}}
-                                placeholder="请选择你的钱包"
-                                placeholderStyle={{ color:"#bfc6ea" }}
-                                placeholderIconColor="#007aff"
-                                selectedValue={this.state.selected2}
-                                onValueChange={this.onValueChange2.bind(this)}
-                                >
-                                {walletdata.map(WalletItem)}
-                            </Picker>
-                        </Item>
-                    </Form>                       
-                </View>
-                <H3 style={{margin:10}}>在线充值</H3>
+                <H3 style={{margin:10}}>选择金额</H3>
                 <SectionList
-                    sections={[{data}]} 
+                    sections={[{data}]}     
                     renderItem={this._renderSectionItem}
                     keyExtractor={this._keyExtractor}
                     />
@@ -134,7 +97,7 @@ class RechargeLine extends Component {
                         <TouchableOpacity style={{flex:1}} onPress={this.onClose.bind(this)}>
                             <View style={stylees.container}>
                                 <View style={stylees.innerContainer}>
-                                    <H3>在线充值</H3>
+                                    <H3>付款方式</H3>
                                     <View style={ {flexDirection:'row',height:80,marginTop:10}}>
                                         <TouchableOpacity onPress={() => this.onPressImage(this.state.keys,this.state.moneys)}>
                                             <View style={ {flex:1,margin:20 }}>
@@ -202,7 +165,7 @@ export default connect(state => ({
     state: state.user
 }), (dispatch) => ({
     actions: bindActionCreators(action.user, dispatch)
-}))(RechargeLine);
+}))(OrderPay);
 
 const styles = StyleSheet.create({
     container: {
@@ -227,6 +190,24 @@ const styles = StyleSheet.create({
     itemText2: {
         fontSize: 12,
         color:'#87CEFA'
+    },
+    containers:{
+        flex:1,
+        justifyContent: 'center',
+        alignItems:'center',
+        backgroundColor:'#66CDAA'
+    },
+    textStyle:{
+       fontSize:18,
+       textAlign:'center',   
+       justifyContent: 'center',
+       backgroundColor:'#66CDAA'
+    },
+    textStyles:{
+       fontSize:12,
+       textAlign:'center',   
+       justifyContent: 'center',
+       backgroundColor:'#66CDAA'
     }
 
 })

@@ -24,6 +24,14 @@ function setProducts(type,data) {
         data
     }
 }
+
+function setWalletList(type,data) {
+    return{ 
+        type,
+        data
+    }
+}
+
 export const UserInfo = (id, params, callback) => {
     return (dispatch, getState) => {
         return (async () => {
@@ -60,6 +68,20 @@ export const GetProducts = (id, callback) => {
                 dispatch(setProducts(types.SET_PRODUCTS, null));
                 var data = await api.GetProducts(id, callback);
                 dispatch(setProducts(types.SET_PRODUCTS, data));
+            } catch (e) {
+                console.log('err ==== ' + JSON.stringify(e));
+            }
+        })();
+    };
+};
+//GetWalletList
+export const GetWalletList = (id,params,callback) => {
+    return (dispatch, getState) => {
+        return (async () => {
+            try {
+                dispatch(setWalletList(types.SET_WALLET_LIST, null));
+                var data = await api.GetWalletList(id,params,callback);
+                dispatch(setWalletList(types.SET_WALLET_LIST,data));
             } catch (e) {
                 console.log('err ==== ' + JSON.stringify(e));
             }

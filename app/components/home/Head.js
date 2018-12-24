@@ -66,17 +66,9 @@ class HomeHead extends Component {
         }*/
         return (
             <View>
-                <Swiper style={styles.headsty.wrapper} height={height/5} autoplayTimeout={4} horizontal={true} autoplay={ true }>
-                    <View style={styles.headsty.slide}>
-                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper1.png')} />
-                    </View>
-                    <View style={styles.headsty.slide}>
-                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper2.png')} />
-                    </View>
-                    <View style={styles.headsty.slide}>
-                        <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper3.png')} />
-                    </View>
-                </Swiper>
+                <View style={styles.headsty.slide}>
+                    <Image resizeMode='stretch' style={styles.headsty.image} source={require('./images/swiper4.png')} />
+                </View>
                 <MarqueeLabel
                   duration={40000}
                   textContainerHeight={height/40}
@@ -86,32 +78,6 @@ class HomeHead extends Component {
                 <Card >
                     <Badges props={this.props.props}/>
                 </Card >
-               {/* <View>
-                    <Card style={{ height: height/9,margin:10}}>
-                    <Form>
-                        <Item picker>
-                            <Picker
-                                mode="dropdown"
-                                style={{marginLeft:10}}
-                                placeholder="请选择你的钱包"
-                                placeholderStyle={{ color:"#bfc6ea" }}
-                                placeholderIconColor="#007aff"
-                                selectedValue={this.state.selected2}
-                                onValueChange={this.onValueChange2.bind(this)}
-                                >
-                                {walletdata.map(WalletItem)}
-                            </Picker>
-                        </Item>
-                    </Form>
-                        <CardItem>
-                            <Body>
-                                <Text>
-                                    当前钱包余额￥{this.state.walletmoney}元
-                                </Text>
-                            </Body>
-                        </CardItem>                        
-                    </Card>
-                </View>*/}
                 <Grid>
                     <Col style={{ backgroundColor: '#635DB7', borderRadius: 5, height: height/8 ,margin:8}}>
                         <Card style={{ height: height/9}}>
@@ -147,14 +113,6 @@ class HomeHead extends Component {
                             </CardItem>
                         </Card>
                     </Col>
-                   {/* <Col style={{  borderRadius: 5, height: height/5 ,margin:8}}>
-                        <Row style={{ backgroundColor: 'red', borderRadius: 5}}>
-                            <Text>2</Text>
-                        </Row>
-                        <Row style={{ backgroundColor: 'blue', borderRadius: 5}}>
-                            <Text>3</Text>
-                        </Row>
-                    </Col>*/}
                 </Grid>
                 <Newes/>
             </View>

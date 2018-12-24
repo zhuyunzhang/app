@@ -6,6 +6,7 @@ import  { createBottomTabNavigator } from 'react-navigation'
 import Home from './components/home';
 import My from './components/my';
 import Recharge from './components/recharge';
+
 // import ScreenTab2 from '../src/screens/ScreenTab2';
 // import ScreenTab3 from '../src/screens/ScreenTab3';
 

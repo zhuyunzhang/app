@@ -54,7 +54,7 @@ const numColumns = 4;
         return item.img;
     }
 
-
+    
     _renderItem = ({item}) => {
         return (
             <TouchableOpacity 
@@ -81,8 +81,11 @@ const numColumns = 4;
             if(navigation){
                 navigation.navigate('RechargeLine') 
             }
-        }else{
-            alert("==>"+title)
+        }else if(keys==2){
+            const{navigation}=this.props.props
+            if(navigation){
+                navigation.navigate('Wallet') 
+            }
         }    
     }
     _renderSectionItem = ({section}) => {

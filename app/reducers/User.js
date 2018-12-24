@@ -11,11 +11,12 @@ const initialState = {
 	signs_info:null,
 	user_info: null,
 	products_info:null,
+	wallet_info:null,
 
 };
 
 export default function user(state = initialState, action = {}) {
-	// console.log(`reducers project: ${action.type}`);SET_PRODUCTS
+	// console.log(`reducers project: ${action.type}`);SET_PRODUCTS   SET_WALLET_LIST
 	switch(action.type) {
 	case types.SET_USER_INFO:
 		return Object.assign(
@@ -31,6 +32,11 @@ export default function user(state = initialState, action = {}) {
 		return Object.assign(
             {}, state,
             {products_info: action.data}
+        );	
+    case types.SET_WALLET_LIST:
+		return Object.assign(
+            {}, state,
+            {wallet_info: action.data}
         );
 	default:
 		return state;
