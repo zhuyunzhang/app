@@ -13,13 +13,14 @@ import {bindActionCreators} from 'redux';
 import * as action from '../../../actions';
 import {PieChart} from 'react-native-charts-wrapper';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import { Icon } from 'native-base';
 const { width, height } = Dimensions.get('window');
 class WalletInfo extends React.Component {
 
     constructor() {
         super();
         this.state={
-            values:[{value: 20, label: '补贴'},{value: 80, label: '充值'}],
+            values:[{value: 0, label: '充值'}],
             pay_count:"0",
         }
     }
@@ -43,8 +44,8 @@ class WalletInfo extends React.Component {
         walletinfo = wallet_info;
         }
         if (JSON.stringify(walletinfo.content)==undefined){
-            walletinfo.content=this.state.values
-          
+            walletinfo.content=this.state.values;
+            walletinfo.pay_count=this.state.pay_count
         }
         var walletData={
             data: {
@@ -106,11 +107,31 @@ class WalletInfo extends React.Component {
                 <View style={{height:height/12}}></View>
                 <View>
                     <Grid>
-                        <Col style={{ backgroundColor: '#635DB7', height: height/13 ,margin:2}}>
-                            <Text>1</Text>
+                        <Col style={styles.col1}>
+                            <Icon name='cart' style={{ color: 'red',textAlign:'center', justifyContent:'center',marginLeft:40}}/>
+                            <Text style={{textAlign:'center', justifyContent:'center',marginLeft:40,fontSize:14}}>充值</Text>
                         </Col>
-                        <Col style={{ backgroundColor: '#00CE9F', height: height/13 ,margin:2}}>
-                             <Text>2</Text>
+                        <View style={{ height: height/13,width:1,backgroundColor:'red'}}></View>
+                        <Col style={styles.col2}>
+                            <Icon name='card' style={{color: '#6495ED',textAlign:'center', justifyContent:'center'}}/>
+                            <Text style={{textAlign:'center', justifyContent:'center',fontSize:14}}>卡片</Text>
+                        </Col>
+                        <View style={{ height: height/13,width:1,backgroundColor:'red'}}></View>
+                        <Col style={styles.col1}>
+                            <Icon name='paper' style={{color: '#9400D3',textAlign:'center', justifyContent:'center',marginRight:40}}/>
+                            <Text style={{textAlign:'center', justifyContent:'center',marginRight:40,fontSize:14}}>记录</Text>
+                        </Col>
+                    </Grid>
+                </View>
+                 <View style={{marginTop:80}}>
+                    <Grid>
+                        <Col style={styles.col1}>
+                            <Icon name='arrow-back' style={{ color: 'red',textAlign:'center', justifyContent:'center',marginLeft:40}}/>
+                            <Text style={{textAlign:'center', justifyContent:'center',marginLeft:40,fontSize:14}}>回退</Text>
+                        </Col>   
+                        <Col style={styles.col1}>
+                            <Icon name='home' style={{color: '#6495ED',textAlign:'center', justifyContent:'center'}}/>
+                            <Text style={{textAlign:'center', justifyContent:'center',fontSize:14}}>首页</Text>
                         </Col>
                     </Grid>
                 </View>
@@ -132,16 +153,35 @@ const styles = StyleSheet.create({
         backgroundColor:'#66CDAA'
     },
     textStyle:{
-       fontSize:26,
-       textAlign:'center',   
-       justifyContent: 'center',
-       backgroundColor:'#66CDAA',
-       color:'#FFFFFF'
+        fontSize:26,
+        textAlign:'center',   
+        justifyContent: 'center',
+        backgroundColor:'#66CDAA',
+        color:'#FFFFFF'
     },
     textStyles:{
+        fontSize:14,
+        textAlign:'center',   
+        justifyContent: 'center',
+        backgroundColor:'#66CDAA'
+    },
+    col1:{
+
+        height: height/13 ,
+        textAlign:'center',   
+        justifyContent: 'center',
+    },
+    col2:{
+        textAlign:'center',   
+        justifyContent: 'center',
+
+        height: height/13 ,
+        width:100
+    },    
+/*    col3:{
        fontSize:14,
        textAlign:'center',   
        justifyContent: 'center',
        backgroundColor:'#66CDAA'
-    }
+    }*/
 });
