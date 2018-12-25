@@ -138,7 +138,7 @@ class Wallet extends Component {
 				              	</Left>
 				              	<Right >
 				              		<Body>
-					                  	<Text style={{color:'#6495ED',fontSize:16}}>充值</Text>
+					                  	<Text style={{color:'#6495ED',fontSize:16}}>钱包详情</Text>
 					                </Body>
 				              	</Right>
 				            </CardItem>

@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-charts-wrapper')
     compile project(':react-native-qr-scanner')
     compile project(':react-native-camera')
     compile project(':react-native-splash-screen')
