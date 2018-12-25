@@ -31,6 +31,12 @@ function setWalletList(type,data) {
         data
     }
 }
+function SetWalletInfo(type,data) {
+    return{ 
+        type,
+        data
+    }
+}
 
 export const UserInfo = (id, params, callback) => {
     return (dispatch, getState) => {
@@ -82,6 +88,20 @@ export const GetWalletList = (id,params,callback) => {
                 dispatch(setWalletList(types.SET_WALLET_LIST, null));
                 var data = await api.GetWalletList(id,params,callback);
                 dispatch(setWalletList(types.SET_WALLET_LIST,data));
+            } catch (e) {
+                console.log('err ==== ' + JSON.stringify(e));
+            }
+        })();
+    };
+};
+//GetWalletInfo
+export const GetWalletInfo = (id,callback) => {
+    return (dispatch, getState) => {
+        return (async () => {
+            try {
+                dispatch(SetWalletInfo(types.SET_WALLET_INFO, null));
+                var data = await api.GetWalletInfo(id,callback);
+                dispatch(SetWalletInfo(types.SET_WALLET_INFO,data));
             } catch (e) {
                 console.log('err ==== ' + JSON.stringify(e));
             }

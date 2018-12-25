@@ -29,7 +29,10 @@ export function GetProducts(id, callback) {
 export function GetWalletList(id,params, callback) {
     return getRequest(`/agent/${id}/lower/order/list/0`,params, callback);
 }
-
+///:id/withdraw/list
+export function GetWalletInfo(id, callback) {
+    return getRequest(`/agent/${id}/withdraw/list`, callback);
+}
 function getRequest(url, params) {
     var curl = getUrl(url, params);
     console.log('get request:' + curl);

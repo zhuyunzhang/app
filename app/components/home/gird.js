@@ -74,7 +74,7 @@ const numColumns = 4;
         if(keys===1){
             const{navigation}=this.props.props
             if(navigation){
-                navigation.navigate('RechargeList') 
+                navigation.navigate('WalletInfo') 
             }
         }else if(keys===4){
             const{navigation}=this.props.props

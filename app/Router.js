@@ -10,6 +10,8 @@ import RechargeLine from './components/home/rechargeline';
 import Consumption from './components/home/consumption';
 import Wallet from './components/home/wallet';
 import RechargeList from './components/home/rechargeline/rechargelist';
+import WalletInfo from './components/home/wallet/walletinfo';
+
 /**
  * 自定义 StackNavigator，可以选择 screen 进入方式
  * 默认状态为 card，只需要输入对应页面，比如 ..navigate('ScreenSome1')
@@ -50,6 +52,7 @@ const AppNavigator = StackModalNavigator({
   RechargeList:{screen: RechargeList },
   Consumption:{screen: Consumption },
   Wallet:{screen: Wallet },
+  WalletInfo:{screen: WalletInfo },
 });
 const App = createAppContainer(AppNavigator)
 export default App
